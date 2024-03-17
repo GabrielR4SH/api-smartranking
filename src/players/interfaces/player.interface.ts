@@ -1,4 +1,4 @@
-export interface Players{
+export interface Player{
     readonly id: string;
     readonly telefoneCelular: string;
     readonly email: string;
