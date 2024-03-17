@@ -44,29 +44,25 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+## This App
+# Tennis Amateurs Ranking Application
 
-## Test
+This application is designed for amateur tennis players who participate in a ranking system that is currently managed manually. The goal of this application is to modernize and streamline the ranking control process.
 
-```bash
-# unit tests
-$ npm run test
+## Player Features
 
-# e2e tests
-$ npm run test:e2e
+- **Challenge Management**: Players can request or reject challenges from other players.
+- **Match Result Registration**: Players can record the results of their matches.
+- **Ranking Tracking**: Players can monitor their rankings.
+- **Data and Match History**: Players can access and review their data and match history.
+- **Opponent Information**: Players can view information about their opponents.
+- **Email Notifications**: Players receive email notifications when challenged.
 
-# test coverage
-$ npm run test:cov
-```
+## Administrator Features
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- **Category Management**: Administrators can create categories and define scoring systems.
+- **Player Management**: Administrators can register players and assign them to categories.
+- **Challenge Notifications**: Administrators are notified when there is a pending challenge that has been outstanding for more than 10 days.
 
 ## License
 
