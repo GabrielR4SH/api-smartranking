@@ -11,9 +11,16 @@ export class PlayersService {
 
     async createAndUpdate_player(generatePlayerDto: GeneratePlayerDto): Promise<void> {
         
-        await this.create(generatePlayerDto);
-    }
+        const {email} = generatePlayerDto;
+        const playerFound = await this.players.find(player => player.email === email);
 
+        if(playerFound){
+            await this.update(playerFound, generatePlayerDto);
+        }
+        else{
+            await this.create(generatePlayerDto);
+        }
+    }
 
     async getAllPlayers(): Promise<Player[]>{
         return await this.players;
@@ -35,6 +42,12 @@ export class PlayersService {
         this.players.push(player);
         return player;
         //
+    }
+
+    private update(playerFound: Player, generatePlayerDto: GeneratePlayerDto):void {
+        const {nome} = generatePlayerDto;
+        
+        playerFound.nome = nome;
     }
 
 }
