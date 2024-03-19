@@ -10,8 +10,13 @@ export class PlayersService {
     private readonly logger = new Logger(PlayersService.name);
 
     async createAndUpdate_player(generatePlayerDto: GeneratePlayerDto): Promise<void> {
-        this.logger.log(`gen Player: ${generatePlayerDto}`);
+        
         await this.create(generatePlayerDto);
+    }
+
+
+    async getAllPlayers(): Promise<Player[]>{
+        return await this.players;
     }
 
     private create(generatePlayerDto: GeneratePlayerDto): Player {
@@ -26,9 +31,10 @@ export class PlayersService {
             posicaoRanking: 1,
             urlFotoJogador: 'www.google.com.br/foto123.jpg'
         };
-    
-        this.logger.log(`Player => ${JSON.stringify(player)}`)
+        this.logger.log(`Player => ${JSON.stringify(player)}`);
         this.players.push(player);
         return player;
+        //
     }
+
 }
