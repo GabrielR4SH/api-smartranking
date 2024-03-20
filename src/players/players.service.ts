@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { GeneratePlayerDto } from './dtos/gen-palyer.dto'; // Verifique se o nome do arquivo está correto
 import { Player } from './interfaces/player.interface';
 import { v4 as uuidv4 } from 'uuid';
@@ -24,6 +24,14 @@ export class PlayersService {
 
     async getAllPlayers(): Promise<Player[]>{
         return await this.players;
+    }
+
+    async getPlayerEmail(email:string): Promise<Player>{
+        const playerFound = await this.players.find(player => player.email === email)
+        if(!playerFound){
+            throw new NotFoundException(`O email: ${email} é invalido`);
+        }
+        return playerFound;
     }
 
     private create(generatePlayerDto: GeneratePlayerDto): Player {
